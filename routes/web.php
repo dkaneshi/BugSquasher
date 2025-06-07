@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Livewire\Counter;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -10,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('/counter', Counter::class)->name('counter');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

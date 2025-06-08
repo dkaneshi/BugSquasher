@@ -1,6 +1,6 @@
 <div>
     <div>
-        <flux:heading size="xl">Users</flux:heading>
+        <flux:heading size="lg">Users</flux:heading>
     </div>
     <div>
         <flux:table :paginate="$this->users">

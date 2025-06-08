@@ -3,10 +3,10 @@
 declare(strict_types=1);
 
 use App\Livewire\Counter;
-use App\Livewire\ListUsers;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
+use App\Livewire\Users;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,7 +14,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/counter', Counter::class)->name('counter');
-Route::get('/users', ListUsers::class)->name('users');
+Route::get('/users', Users::class)->name('users');
+Route::get('/adduser', App\Livewire\AddUser::class)->name('adduser');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

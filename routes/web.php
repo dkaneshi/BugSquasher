@@ -14,7 +14,11 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/counter', Counter::class)->name('counter');
-Route::get('/users', Users::class)->name('users');
+
+Route::get('/users', Users::class)
+    ->middleware(['auth', 'verified'])
+    ->name('users');
+
 Route::get('/adduser', App\Livewire\AddUser::class)->name('adduser');
 
 Route::view('dashboard', 'dashboard')

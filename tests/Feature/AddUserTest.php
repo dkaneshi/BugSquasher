@@ -22,3 +22,20 @@ it('adds a new user', function () {
         'email' => 'user@test.com',
     ]);
 });
+
+it('resets the form fields when resetForm is called', function () {
+    $user = User::factory()->create();
+
+    $this->actingAs($user);
+
+    Livewire::test(AddUser::class)
+        ->set('name', 'Test User')
+        ->set('email', 'user@test.com')
+        ->set('password', 'password')
+        ->set('password_confirmation', 'password')
+        ->call('resetForm')
+        ->assertSet('name', '')
+        ->assertSet('email', '')
+        ->assertSet('password', '')
+        ->assertSet('password_confirmation', '');
+});
